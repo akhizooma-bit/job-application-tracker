@@ -1,13 +1,29 @@
 # Job Application Tracker
 
-A web application that helps users organize job applications, track application progress, and manage their job search in one place.
+A MERN-stack web application for organizing job applications, tracking application progress, and managing the job search process.
 
 ## Features
 
 - Add and manage job applications.
-- Track application statuses.
-- Organize job details and company information.
-- View and manage saved application records.
+- Track application status and progress.
+- Store company, role, application date, and other job details.
+- View, update, search, and filter application records where supported.
+- MongoDB database integration through an Express.js REST API.
+
+## Technologies Used
+
+**Frontend**
+- React
+- Vite
+- JavaScript
+- CSS
+
+**Backend**
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- REST API
 
 ## Project Structure
 
@@ -15,41 +31,87 @@ A web application that helps users organize job applications, track application 
 job-application-tracker/
 ├── frontend/
 ├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── server.js
+│   ├── package.json
+│   └── .env.example
 ├── screenshots/
 └── README.md
 ```
 
-## Technologies Used
+## API Endpoints
 
-### Frontend
-Add the frontend technologies used in this project.
+Base URL: `http://localhost:5000`
 
-### Backend
-Add the backend technologies and database used in this project.
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/` | Check whether the API is running |
+| GET | `/api/applications` | Retrieve applications |
+| POST | `/api/applications` | Create an application |
+| GET | `/api/applications/:id` | Retrieve an application by ID, if implemented |
+| PUT | `/api/applications/:id` | Update an application, if implemented |
+| DELETE | `/api/applications/:id` | Delete an application |
 
-## Prerequisites
-
-- Git
-- Node.js and npm, if required by the frontend or backend.
+**Note:** Confirm each endpoint against `backend/routes/applications.js` before submission. Remove any endpoint that your code does not implement.
 
 ## Installation and Setup
 
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/akhizooma-bit/job-application-tracker.git
 cd job-application-tracker
 ```
 
-### 2. Set up the frontend
+### 2. Configure the backend
+
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file in the `backend/` directory with your test database configuration:
+
+```env
+PORT=5000
+MONGODB_URI=your_test_mongodb_atlas_connection_string
+```
+
+Use a test-only database account and never publish personal or production credentials.
+
+Start the backend:
+
+```bash
+node server.js
+```
+
+The API will use port 5000 by default.
+
+### 3. Start the frontend
+
+Open a second terminal from the project root:
 
 ```bash
 cd frontend
 npm install
+npm run dev
 ```
 
-Run the frontend using the command specified in `frontend/package.json`.
+Open the local URL printed by Vite in your terminal.
 
-### 3. Set up the backend
+## Screenshots
 
-Follow the installation instructions and run command specified
+Add two screenshots of the **working application** to the `screenshots/` folder, then update these image paths to match the actual filenames.
+
+### Application Dashboard
+
+![Job Application Tracker Dashboard](screenshots/dashboard.png)
+
+### Add Application Form
+
+![Add Job Application Form](screenshots/add-application.png)
+
+## Repository
+
+[View the project on GitHub](https://github.com/akhizooma-bit/job-application-tracker)
